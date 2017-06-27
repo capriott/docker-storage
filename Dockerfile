@@ -3,6 +3,7 @@ MAINTAINER Andrea Capriotti <a.capriotti@cineca.it>
 
 VOLUME /home
 
-RUN groupadd -g 1000 storage && useradd -u 1000 -g storage -G audio storage
+COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["mkhomedir_helper", "storage"]
