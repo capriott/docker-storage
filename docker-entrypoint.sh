@@ -11,9 +11,8 @@ fi
 
 # create user with uid and gid matching that of the host user
 if ! getent passwd storage >/dev/null; then
-	adduser --uid ${USER_UID} --gid ${USER_GID} \
-		--disabled-login \
-		--gecos 'Firefox user' storage
+	useradd --uid ${USER_UID} --gid ${USER_GID} \
+		-c 'Firefox user' storage
 fi
 
 exec "$@"
